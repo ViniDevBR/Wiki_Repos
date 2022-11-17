@@ -20,7 +20,6 @@ interface RepoProps {
   language: string
   owner: {
     html_url: string
-    login: string
     avatar_url: string
   }
 }
@@ -57,18 +56,6 @@ function App() {
   return (
     <Container className="App">
       <img src={githubLogo} width={72} height={72} alt="" />
-      <div className='infos'>
-        {repos.map(repo => {  
-          return (
-            <UserInfo
-              key={repo.id} 
-              img={repo.owner.avatar_url} 
-              name={repo.owner.login}
-              onClick={repo.owner.html_url}
-            />
-          )
-        })}
-      </div>
       <Input 
         value={textInput} 
         onChange={handleTextInput}
@@ -79,6 +66,8 @@ function App() {
           <ItemRepo 
             key={repo.id}
             name={repo.name}
+            profile={repo.owner.html_url}
+            img={repo.owner.avatar_url}
             full_name={repo.full_name}
             url={repo.html_url}
             tech={repo.language}

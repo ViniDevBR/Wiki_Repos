@@ -1,12 +1,9 @@
 import styled from "styled-components";
 
-export const InfoContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 5px;
+export const InfoContainer = styled.a`
 
   img {
-    width: 30px;
+    width: 53px;
     border-radius: 50%;
   }
 
