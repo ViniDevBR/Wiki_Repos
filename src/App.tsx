@@ -1,9 +1,10 @@
 //REACT
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 //COMPONENTE
 import { Button } from './components/Button'
 import { Input } from './components/Input'
 import { ItemRepo } from './components/ItemRepo'
+import { UserInfo } from './components/UserInfo'
 //API
 import { API } from './services/api'
 //STYLES
@@ -17,6 +18,11 @@ interface RepoProps {
   full_name: string
   html_url: string
   language: string
+  owner: {
+    html_url: string
+    login: string
+    avatar_url: string
+  }
 }
 
 
@@ -26,7 +32,6 @@ function App() {
 
   async function handleSearchRepos() {
     const { data } = await API.get(`/repos/${textInput}`)
-    console.log(data)
     
     if(data.id){
       const isExist = repos.find(repo => repo.id === data.id)
@@ -52,7 +57,22 @@ function App() {
   return (
     <Container className="App">
       <img src={githubLogo} width={72} height={72} alt="" />
-      <Input value={textInput} onChange={handleTextInput}/>
+      <div className='infos'>
+        {repos.map(repo => {  
+          return (
+            <UserInfo
+              key={repo.id} 
+              img={repo.owner.avatar_url} 
+              name={repo.owner.login}
+              onClick={repo.owner.html_url}
+            />
+          )
+        })}
+      </div>
+      <Input 
+        value={textInput} 
+        onChange={handleTextInput}
+      />
       <Button onClick={handleSearchRepos}/>
       {repos.map(repo => {
         return (
