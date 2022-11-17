@@ -23,7 +23,7 @@ export const ItemContainer = styled.div`
   .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     
     .link {
       display: flex;

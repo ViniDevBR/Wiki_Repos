@@ -1,10 +1,15 @@
+//REACT
 import { ChangeEvent, useState } from 'react'
-import githubLogo from './assets/github.png'
+//COMPONENTE
 import { Button } from './components/Button'
 import { Input } from './components/Input'
 import { ItemRepo } from './components/ItemRepo'
+//API
 import { API } from './services/api'
+//STYLES
 import { Container } from './styles/styles'
+//IMG
+import githubLogo from './assets/github.png'
 
 interface RepoProps {
   id: number

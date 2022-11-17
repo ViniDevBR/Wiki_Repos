@@ -1,4 +1,4 @@
-import { ChangeEvent, ChangeEventHandler } from "react";
+import { ChangeEventHandler } from "react";
 import { InputContainer } from "./styles";
 
 interface Props {
