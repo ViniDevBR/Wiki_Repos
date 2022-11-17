@@ -8,7 +8,11 @@ interface Props {
 export function Input(props: Props) {
   return(
     <InputContainer>
-      <input value={props.value} onChange={props.onChange}/>
+      <input 
+        value={props.value} 
+        onChange={props.onChange}
+        placeholder='username/repo'
+      />
     </InputContainer>
   )
 }
